@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26437802885",
+    "project_id": "hungrymangw",
+    "storage_bucket": "hungrymangw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26437802885:android:a7c247028c1f5aae2a42ec",
+        "android_client_info": {
+          "package_name": "com.example.hungryman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26437802885-t0b8v4112mvanuujnqrqoq6js25vje3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO7S1WQZDd1WuCqSdJy8fmjqy_kr2T-qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26437802885-t0b8v4112mvanuujnqrqoq6js25vje3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

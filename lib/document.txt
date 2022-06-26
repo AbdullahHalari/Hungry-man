@@ -1,0 +1,24 @@
+Flutter food delivery app 
+
+### Flutter Food Ordering app screens
+- Signup with email and password
+- Login with email and password
+- Home Screen
+- card of all items with the ratings, delivery time and DC.
+- Home screen promo Image display
+- Location Picker
+- GPS picker for current location
+- details page(bottom sheet)
+- Menu category
+- Grid view based menu
+- Search 
+- Cart Page
+- Overall price display & checkout button
+- Address display
+- Profile
+- add address before order 
+- Manage orders
+- View Orders in listview
+- View detailed order information
+- Help
+- Logout
