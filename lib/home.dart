@@ -69,26 +69,29 @@ void getData() async {
         return false;
       },
       child: Scaffold(
+        
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(65.0),
-          
+        
           child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           toolbarHeight: 70,
-          title: Center(child: Text("😋HUNGRY MAN😛",style: TextStyle(
+          title: Center(child: Text("HUNGRY MAN",style: TextStyle(
               fontSize: 35,
+              color: Colors.amber
             ),)),
           centerTitle: true,
           automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                gradient: LinearGradient(
-                    colors: [Colors.red,Color.fromARGB(255, 60, 14, 29)],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter
-                )
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+                // gradient: LinearGradient(
+                  color: Colors.black,
+                    // colors: [Color.fromARGB(255, 249, 197, 43),Color.fromARGB(255, 202, 183, 8)],
+                    // begin: Alignment.bottomCenter,
+                    // end: Alignment.topCenter
+                // )
             ),
           ),
         ),
@@ -110,6 +113,7 @@ void getData() async {
         
         body: SingleChildScrollView(
           child: Column(
+          
             children: [
               // Padding(
               //   padding: const EdgeInsets.all(8.0),
@@ -142,30 +146,30 @@ void getData() async {
               //   ),
               // ),
 //          
- Row(
-                children:  [
-                               SizedBox(height: 40),
-                  Flexible(
-                    flex: 1,
-                    child: TextScroll(
+//  Row(
+//                 children:  [
+//                                SizedBox(height: 40),
+//                   Flexible(
+//                     flex: 1,
+//                     child: TextScroll(
                    
-                      firstname.toUpperCase() + "      " + lastname.toUpperCase() +"      "+ email,  
-                      velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
-                      pauseBetween: Duration(milliseconds: 1000),
+//                       firstname.toUpperCase() + "      " + lastname.toUpperCase() +"      "+ email,  
+//                       velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+//                       pauseBetween: Duration(milliseconds: 1000),
                       
-                      style: TextStyle(
+//                       style: TextStyle(
                         
-                        fontSize: 32,
-                      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                        color: Color.fromARGB(255, 0, 0, 0)
-                      ),
-                      mode: TextScrollMode.bouncing,
-                    ),
-                  ),
+//                         fontSize: 32,
+//                       backgroundColor: Color.fromARGB(255, 255, 255, 255),
+//                         color: Colors.amber
+//                       ),
+//                       mode: TextScrollMode.bouncing,
+//                     ),
+//                   ),
                  
-                ],
+//                 ],
  
-              ),
+//               ),
           
               // carousel slider
 
@@ -219,7 +223,14 @@ void getData() async {
                       ))
                 ],
               )),
+Text("EXPLORE CATEGORIES",style: TextStyle(
+              fontSize: 25,
+              color: Colors.amber,
+              fontWeight: FontWeight.bold
 
+            )            ),
+            // ),
+                            SizedBox(height:10),
               Container(
                 // margin: EdgeInsets.fromLTRB(10, 10, 20, 10),
                 // height: 100.0,
@@ -331,20 +342,57 @@ Container(
                 height: 10,
                 thickness: 5.0,
               ),
-              Title(color: Colors.amber, child: Text("child")),
-              foodcard(
-                  "Zinger Burger",
-                  "crispy fried chicken fillet slathered with a special burger sauce.",
-                  "images/zinger.jpg"),
-              foodcard(
-                  "Club Sandwich",
-                  "a sandwich of three slices of bread with two layers of chicken.",
-                  "images/club.jpg"),
-              foodcard(
-                  "Pepperoni Pizza",
-                  "A meaty feast of pepperoni, mozzarella cheese and tomato sauce.",
-                  "images/pepperoni.jpg"),
+             
+// Align(
+   
+//   alignment: Alignment.centerLeft,
+  
+      // child:     
+       Text("EXCLUSIVE DEAL",style: TextStyle(
+              fontSize: 25,
+              color: Colors.amber,
+              fontWeight: FontWeight.bold
 
+            )            ),
+            // ),
+                            SizedBox(height:10),
+
+              foodcard(
+                  "Burger Deal",
+                  "crispy fried chicken fillet slathered with a special burger sauce.",
+                  "images/burger1.jpg"),
+              foodcard(
+                  "Sandwich Deal",
+                  "a sandwich of three slices of bread with two layers of chicken.",
+                  "images/sandwich1.jpg"),
+              foodcard(
+                  "Pizza Deal",
+                  "A meaty feast of pepperoni, mozzarella cheese and tomato sauce.",
+                  "images/pizza1.jpg"),
+
+                  Text("ADVERTISEMENT",style: TextStyle(
+              fontSize: 25,
+              color: Colors.amber,
+              fontWeight: FontWeight.bold
+
+            )            ),
+            // ),
+          
+                            SizedBox(height:10),
+                          
+              Container(
+                // color: Colors.red,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                image: DecorationImage
+                (
+                  
+                              image: AssetImage("images/s2.png"),
+                 fit: BoxFit.fill 
+                ) 
+              )
+              )
               // Container(height: 1100, child: Homecard(list: homeList)),
 
               // Padding(
@@ -450,7 +498,7 @@ Widget foodcard(String foodname, String des, String image,) {
                     topRight: Radius.circular(20.0),
                     topLeft: Radius.circular(20.0)),
                 image: new DecorationImage(
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     image: AssetImage(
                       image,
                     ))),

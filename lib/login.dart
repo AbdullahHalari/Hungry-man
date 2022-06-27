@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:hungryman/Home1post.dart';
 // import 'package:hungryman/home.dart';
 import 'package:hungryman/bottom_bar.dart';
+import 'package:hungryman/reset.dart';
+
 // import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 
 class Login extends StatefulWidget {
@@ -62,20 +64,18 @@ class _LoginState extends State<Login> {
               );
             });
       }
-      
     }
 
     return WillPopScope(
         onWillPop: () async {
           // ScaffoldMessenger.of(context).showSnackBar(
           //     SnackBar(content: Text('Please First login to enter the app')));
-          
+
           return false;
         },
-        child: 
-         Scaffold(
+        child: Scaffold(
             backgroundColor: Colors.black,
-            body:Container(
+            body: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("images/bg2.png"),
@@ -167,16 +167,22 @@ class _LoginState extends State<Login> {
                           onPressed: login,
                           child: Text("Login")),
                     ),
-                    Container(
-              height: 15,
-              child: Align(
-                alignment:  Alignment.centerRight, 
-                child: Text("forgot password",
-              style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.amber,
-                  ),))
-            ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => reset()));
+                        },
+                        child: Container(
+                            height: 15,
+                            child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  "reset password",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.amber,
+                                  ),
+                                )))),
                     Container(
                         // height: 50,
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -205,8 +211,8 @@ class _LoginState extends State<Login> {
                         ))
                   ],
                 ),
-              ),)
-            ));
+              ),
+            )));
   }
 
   void _togglePasswordView() {

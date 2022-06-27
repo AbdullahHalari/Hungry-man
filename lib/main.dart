@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
             initialRoute: SplashRoute,
             routes: routes,
               debugShowCheckedModeBanner: false,
+                  // theme: new ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 252, 233, 195)),
               title: 'HUNGRY MAN',
               home: Form());
         }
