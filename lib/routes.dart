@@ -13,7 +13,7 @@ const String LoginRoute = "/login";
 const String FormRoute = "/Form";
 
 final routes = {
-  SplashRoute: (context) => SplashView(),
+  // SplashRoute: (context) => SplashView(),
   LoginRoute: (context) => Login(),
   HomeRoute: (context) => Bottombar(),
   FormRoute: (context) => Form()

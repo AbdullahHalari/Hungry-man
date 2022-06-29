@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.0.8
   marquee: ^2.2.3
   text_scroll: ^0.0.5
+  flutter_native_splash: ^0.3.2
 
 
 
@@ -83,10 +84,15 @@ flutter:
     - images/s1.png
     - images/s2.png
     - images/s3.png
+    - images/splash.jpg
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+flutter_native_splash:  
+  background_image: images/splash.jpg
+  color: "1e0101"
+  fullscreen: true  
+  image: images/logohm.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

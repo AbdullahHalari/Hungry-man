@@ -96,7 +96,9 @@ class _CartState extends State<Cart> {
                                 children: [
                                   Container(
                                     width: 140,
-                                    child: Text(_documentSnapshot['name']),
+                                    child: Text(_documentSnapshot['name'],style: TextStyle(
+                                      fontSize: 20
+                                    ),),
                                   ),
                                   SizedBox(
                                     height: 10,
@@ -104,7 +106,7 @@ class _CartState extends State<Cart> {
                                   Container(
                                     width: 140,
                                     child: Text(
-                                      "\$ ${_documentSnapshot['price']}",
+                                      "\PKR ${_documentSnapshot['price']}",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.red),

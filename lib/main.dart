@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
-            initialRoute: SplashRoute,
+            // initialRoute: SplashRoute,
             routes: routes,
               debugShowCheckedModeBanner: false,
                   // theme: new ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 252, 233, 195)),
