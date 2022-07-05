@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:demo/fetchproduct.dart';
+import 'package:hungryman/ordernow.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Cart extends StatefulWidget {
@@ -96,9 +97,10 @@ class _CartState extends State<Cart> {
                                 children: [
                                   Container(
                                     width: 140,
-                                    child: Text(_documentSnapshot['name'],style: TextStyle(
-                                      fontSize: 20
-                                    ),),
+                                    child: Text(
+                                      _documentSnapshot['name'],
+                                      style: TextStyle(fontSize: 20),
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 10,
@@ -150,7 +152,6 @@ class _CartState extends State<Cart> {
           },
         ),
         bottomNavigationBar: Container(
-          
           child: StreamBuilder(
             stream: FirebaseFirestore.instance
                 .collection(collectionName)
@@ -179,27 +180,28 @@ class _CartState extends State<Cart> {
                   ),
                 ),
                 trailing: Container(
-                  width: 160,
-                  child: ElevatedButton(
-                    child: Text("CHECK OUT"),
+                    width: 160,
+                    child: ElevatedButton(
+                      child: Text("CHECK OUT"),
                       style: ElevatedButton.styleFrom(
-                          shape: new RoundedRectangleBorder(
-                            borderRadius:
-                                new BorderRadius.circular(30.0),
-                          ),
-                          primary: Colors.amber,
-                          // padding: EdgeInsets.fromLTRB(
-                          //     100, 10, 100, 10)
-                          ),
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        primary: Colors.amber,
+                        // padding: EdgeInsets.fromLTRB(
+                        //     100, 10, 100, 10)
+                      ),
                       onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => order_now(),
+                            ));
                       },
-                      )
-                ),
+                    )),
               );
             },
           ),
-        )
-     
-        );
+        ));
   }
 }

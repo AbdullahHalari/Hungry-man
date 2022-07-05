@@ -382,7 +382,7 @@ Container(
                           
               Container(
                 // color: Colors.red,
-                height: 150,
+                height: 120,
                 decoration: BoxDecoration(
                   color: Colors.red,
                 image: DecorationImage
