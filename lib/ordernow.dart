@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:hungryman/timer.dart';
 
 class order_now extends StatefulWidget {
   const order_now({Key key}) : super(key: key);
@@ -17,7 +20,12 @@ class _order_nowState extends State<order_now> {
   String collectionName = "users-cart-items";
   double total = 0;
   double dc = 70;
-  
+  double pay = 0;
+  void totall() async {
+    pay = total + dc;
+    // print(pay);
+  }
+
   void getData() async {
     // ignore: await_only_futures
     User user = await FirebaseAuth.instance.currentUser;
@@ -201,8 +209,9 @@ class _order_nowState extends State<order_now> {
                       total = 0;
                       snapshot.data.docs.forEach((result) {
                         total += result.data()['price'];
+                        pay = total + dc;
                       });
-                      print(total);
+                      print(pay);
                       print('done');
                       return
                           // Container(
@@ -212,30 +221,44 @@ class _order_nowState extends State<order_now> {
                         title: Text("Total Amount:"),
                         trailing: Text(
                           "PKR $total",
-                          style:
-                              TextStyle(color: Colors.green[900], fontSize: 30),
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 25),
                         ),
                       );
                     },
                   ),
                 ),
-
                 ListTile(
                   title: Text("Delivery Charges:"),
                   trailing: Text(
                     "PKR $dc",
-                    style: TextStyle(color: Colors.green[900], fontSize: 30),
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 25),
                   ),
                 ),
                 ListTile(
-                  
                   title: Text("Total Amount:"),
                   trailing: Text(
-                    "PKR $total +$dc",
-                    style: TextStyle(color: Colors.green[900], fontSize: 30),
+                    "PKR $pay",
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 25),
                   ),
                 ),
-              ])),
+ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.amber,
+                            // padding: EdgeInsets.fromLTRB(100, 0, 100, 0)
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Timer(),
+                            ));
+                          },
+                          child: Text("Order Now")), 
+                                       ])),
         ));
   }
 }

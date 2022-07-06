@@ -88,6 +88,7 @@ class _FormState extends State<Form> {
             // Image.asset('images/gwgold.png'),
             Container(
       decoration: BoxDecoration(
+        // color: Colors.white,
         image: DecorationImage(
           image: AssetImage("images/bg2.png"),
           fit: BoxFit.fill,

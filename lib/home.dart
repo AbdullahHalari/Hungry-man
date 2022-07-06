@@ -18,7 +18,6 @@ import 'package:provider/provider.dart';
 import 'package:hungryman/carditem.dart';
 import 'package:text_scroll/text_scroll.dart';
 
-
 class Home extends StatefulWidget {
   // const Home({ Key? key }) : super(key: key);
 
@@ -28,13 +27,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<ItemModle> homeList = [];
-   String firstname = " loading....";
+  String firstname = " loading....";
   String lastname = " loading....";
   String email = "loading....";
-  
-  
+
   // List<FoodCategoriesModle> burgerCategoriesList = [];
-void getData() async {
+  void getData() async {
     // ignore: await_only_futures
     User user = await FirebaseAuth.instance.currentUser;
     var data = await FirebaseFirestore.instance
@@ -45,7 +43,6 @@ void getData() async {
       firstname = data.data()['first_name'];
       lastname = data.data()['last_name'];
       email = data.data()['email'];
-      
     });
   }
 
@@ -53,6 +50,7 @@ void getData() async {
     super.initState();
     getData();
   }
+
   @override
   Widget build(BuildContext context) {
     MyProvider provider = Provider.of<MyProvider>(context);
@@ -69,51 +67,49 @@ void getData() async {
         return false;
       },
       child: Scaffold(
-        
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(65.0),
-        
+
           child: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          toolbarHeight: 70,
-          title: Center(child: Text("HUNGRY MAN",style: TextStyle(
-              fontSize: 35,
-              color: Colors.amber
-            ),)),
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            toolbarHeight: 70,
+            title: Center(
+                child: Text(
+              "HUNGRY MAN",
+              style: TextStyle(fontSize: 35, color: Colors.amber),
+            )),
+            centerTitle: true,
+            automaticallyImplyLeading: false,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30)),
                 // gradient: LinearGradient(
-                  color: Colors.black,
-                    // colors: [Color.fromARGB(255, 249, 197, 43),Color.fromARGB(255, 202, 183, 8)],
-                    // begin: Alignment.bottomCenter,
-                    // end: Alignment.topCenter
+                color: Colors.black,
+                // colors: [Color.fromARGB(255, 249, 197, 43),Color.fromARGB(255, 202, 183, 8)],
+                // begin: Alignment.bottomCenter,
+                // end: Alignment.topCenter
                 // )
+              ),
             ),
           ),
-        ),
-            
-            
 
-            // backgroundColor: Color.fromARGB(255, 79, 54, 162),
-            // leading: IconButton(
-            //   onPressed: () {
-            //     Navigator.of(context).pushReplacement(
-            //       MaterialPageRoute(
-            //         builder: (ctx) => Home(),
-            //       ),
-            //     );
-            //   },
-            //   icon: Icon(Icons.close),
-            // ),
-          ),
-        
+          // backgroundColor: Color.fromARGB(255, 79, 54, 162),
+          // leading: IconButton(
+          //   onPressed: () {
+          //     Navigator.of(context).pushReplacement(
+          //       MaterialPageRoute(
+          //         builder: (ctx) => Home(),
+          //       ),
+          //     );
+          //   },
+          //   icon: Icon(Icons.close),
+          // ),
+        ),
         body: SingleChildScrollView(
           child: Column(
-          
             children: [
               // Padding(
               //   padding: const EdgeInsets.all(8.0),
@@ -145,20 +141,20 @@ void getData() async {
               //             labelText: 'Search')),
               //   ),
               // ),
-//          
+//
 //  Row(
 //                 children:  [
 //                                SizedBox(height: 40),
 //                   Flexible(
 //                     flex: 1,
 //                     child: TextScroll(
-                   
-//                       firstname.toUpperCase() + "      " + lastname.toUpperCase() +"      "+ email,  
+
+//                       firstname.toUpperCase() + "      "  lastname.toUpperCase() +"      "+ email,
 //                       velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
 //                       pauseBetween: Duration(milliseconds: 1000),
-                      
+
 //                       style: TextStyle(
-                        
+
 //                         fontSize: 32,
 //                       backgroundColor: Color.fromARGB(255, 255, 255, 255),
 //                         color: Colors.amber
@@ -166,11 +162,11 @@ void getData() async {
 //                       mode: TextScrollMode.bouncing,
 //                     ),
 //                   ),
-                 
+
 //                 ],
- 
+
 //               ),
-          
+
               // carousel slider
 
               Container(
@@ -223,20 +219,20 @@ void getData() async {
                       ))
                 ],
               )),
-Text("EXPLORE CATEGORIES",style: TextStyle(
-              fontSize: 25,
-              color: Colors.amber,
-              fontWeight: FontWeight.bold
-
-            )            ),
-            // ),
-                            SizedBox(height:10),
+              Text("EXPLORE CATEGORIES",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold)),
+              // ),
+              SizedBox(height: 10),
               Container(
                 // margin: EdgeInsets.fromLTRB(10, 10, 20, 10),
                 // height: 100.0,
                 // child: ListView(
-                  // scrollDirection: Axis.horizontal,
-                child: Row ( children: <Widget>[
+                // scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[
                     InkWell(
                       child: categories("Burgers",
                           "https://images.unsplash.com/photo-1606131731446-5568d87113aa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
@@ -277,85 +273,71 @@ Text("EXPLORE CATEGORIES",style: TextStyle(
                                 builder: (context) => Icecreamitems()));
                       },
                     ),
-                   
                   ],
                 ),
               ),
 
-Container(
-                // margin: EdgeInsets.fromLTRB(10, 10, 20, 10),
-                // height: 100.0,
-                // child: ListView(
+              Container(
+                  // margin: EdgeInsets.fromLTRB(10, 10, 20, 10),
+                  // height: 100.0,
+                  // child: ListView(
                   // scrollDirection: Axis.horizontal,
-                child: Center ( child: Row ( children: <Widget>[
-
- InkWell(
-                      child: categories("BBQ",
-                          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmJxfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Bbqitems()));
-                      },
-                    ),
-                    InkWell(
-                      child: categories("Coffee",
-                          "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZmZlZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Coffeeitems()));
-                      },
-                    ),
-                    InkWell(
-                      child: categories("Dessert",
-                          "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVzc2VydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Dessertitems()));
-                      },
-                    ),
-                    InkWell(
-                      child: categories("Drinks",
-                          "https://images.unsplash.com/photo-1542282910-7337bcfea235?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGp1aWNlJTIwYW5kJTIwc2hha2VzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    Juiceitems()));
-                      },
-                    ),
-
-                ] ))),
-
-
-
-
+                  child: Center(
+                      child: Row(children: <Widget>[
+                InkWell(
+                  child: categories("BBQ",
+                      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmJxfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Bbqitems()));
+                  },
+                ),
+                InkWell(
+                  child: categories("Coffee",
+                      "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZmZlZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Coffeeitems()));
+                  },
+                ),
+                InkWell(
+                  child: categories("Dessert",
+                      "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVzc2VydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Dessertitems()));
+                  },
+                ),
+                InkWell(
+                  child: categories("Drinks",
+                      "https://images.unsplash.com/photo-1542282910-7337bcfea235?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGp1aWNlJTIwYW5kJTIwc2hha2VzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Juiceitems()));
+                  },
+                ),
+              ]))),
 
               // divider
               Divider(
                 height: 10,
                 thickness: 5.0,
               ),
-             
-// Align(
-   
-//   alignment: Alignment.centerLeft,
-  
-      // child:     
-       Text("EXCLUSIVE DEAL",style: TextStyle(
-              fontSize: 25,
-              color: Colors.amber,
-              fontWeight: FontWeight.bold
 
-            )            ),
-            // ),
-                            SizedBox(height:10),
+// Align(
+
+//   alignment: Alignment.centerLeft,
+
+              // child:
+              Text("EXCLUSIVE DEAL",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold)),
+              // ),
+              SizedBox(height: 10),
 
               foodcard(
                   "Burger Deal",
@@ -370,29 +352,23 @@ Container(
                   "A meaty feast of pepperoni, mozzarella cheese and tomato sauce.",
                   "images/pizza1.jpg"),
 
-                  Text("ADVERTISEMENT",style: TextStyle(
-              fontSize: 25,
-              color: Colors.amber,
-              fontWeight: FontWeight.bold
+              Text("ADVERTISEMENT",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold)),
+              // ),
 
-            )            ),
-            // ),
-          
-                            SizedBox(height:10),
-                          
+              SizedBox(height: 10),
+
               Container(
-                // color: Colors.red,
-                height: 120,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                image: DecorationImage
-                (
-                  
-                              image: AssetImage("images/s2.png"),
-                 fit: BoxFit.fill 
-                ) 
-              )
-              )
+                  // color: Colors.red,
+                  height: 120,
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      image: DecorationImage(
+                          image: AssetImage("images/s2.png"),
+                          fit: BoxFit.fill)))
               // Container(height: 1100, child: Homecard(list: homeList)),
 
               // Padding(
@@ -416,7 +392,6 @@ Container(
               //         ),
               //       )),
               // ),
-             
             ],
           ),
         ),
@@ -475,7 +450,11 @@ Container(
 
 }
 
-Widget foodcard(String foodname, String des, String image,) {
+Widget foodcard(
+  String foodname,
+  String des,
+  String image,
+) {
   // food card
 
   return Container(
@@ -522,7 +501,6 @@ Widget foodcard(String foodname, String des, String image,) {
                         ),
                         onPressed: () {
                           // bottomsheet();
-                          
                         },
                       ),
                     )),
@@ -609,9 +587,12 @@ Widget categories(String name, String image) {
           width: 65.0,
           height: 80.0,
         ),
-        Text(name,style: TextStyle(
-                color: Color.fromARGB(188, 113, 70, 0),
-        ),),
+        Text(
+          name,
+          style: TextStyle(
+            color: Color.fromARGB(188, 113, 70, 0),
+          ),
+        ),
       ],
     ),
   );
